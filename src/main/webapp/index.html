@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="resources/angular.js"></script>
+        <script src="resources/bdr.js"></script>
+    </head>
+    <body ng-app="BDRApp">
+        <div ng-controller="CarroController as controller">
+            Olá {{controller.usuario}}
+            
+            <div style="border: 1px solid black;" ng-show="controller.carro">
+                <label for="carroId">ID: </label>
+                <input type="number" id="carroId" ng-model="controller.carro.id" disabled><br>
+
+                <label for="modelo">Modelo: </label>
+                <input type="text" id="modelo" ng-model="controller.carro.modelo"><br>
+
+                <label for="valor">Valor: </label>
+                <input type="number" id="valor" ng-model="controller.carro.valor"><br>
+
+                <button type="button" ng-click="controller.salvar()">Salvar</button>
+                <button type="button" ng-click="controller.carro = undefined">Cancelar</button>
+            </div>
+
+            <div style="border: 1px solid black;"
+                 ng-show="!controller.carro">
+                <button type="button" ng-click="controller.novo()">Novo Carro</button><br>
+                <br>
+                <table border="1">
+                    <tr>
+                        <th>ID</th>
+                        <th>Modelo</th>
+                        <th>Valor</th>
+                        <th>Ações</th>
+                    </tr>
+                    <tr ng-repeat="carro in controller.carros">
+                        <td>{{carro.id}}</td>
+                        <td>{{carro.modelo}}</td>
+                        <td>{{carro.valor}}</td>
+                        <td>
+                            <button type="button" ng-click="controller.alterar(carro)">Alterar</button>
+                            <button type="button" ng-click="controller.deletar(carro)">Excluir</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

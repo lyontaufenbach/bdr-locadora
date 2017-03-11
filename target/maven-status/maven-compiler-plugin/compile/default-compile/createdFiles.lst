@@ -1,0 +1,4 @@
+io\github\lyontaufenbach\bdr\locadora\service\CarroService.class
+io\github\lyontaufenbach\bdr\locadora\BdrApplication.class
+io\github\lyontaufenbach\bdr\locadora\model\Carro.class
+io\github\lyontaufenbach\bdr\locadora\controllers\CarroController.class
